@@ -1,0 +1,29 @@
+{
+  "name": "mneoc",
+  "version": "1.0.0",
+  "description": "mneoc website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app",
+    "dev":"nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncgalleyne/MNEoC-Website.git"
+  },
+  "author": "nate alleyne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ncgalleyne/MNEoC-Website/issues"
+  },
+  "homepage": "https://github.com/ncgalleyne/MNEoC-Website#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
