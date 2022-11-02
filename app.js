@@ -13,9 +13,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mailing list route
+// calls to this endpoint subscribe members
 app.post('/signup', (req, res) => {
-    const {firstName, lastName, email} = req.body;
-    if(!firstName || !lastName || !email)
+    const {fname, lname, email} = req.body;
+    if(!fname || !lname || !email)
         console.log('invalid request');
 
     const data = {
@@ -24,8 +25,8 @@ app.post('/signup', (req, res) => {
                 email_address: email,
                 status: 'subscribed',
                 merge_fields: {
-                    FNAME: firstName,
-                    LNAME: lastName
+                    FNAME: fname,
+                    LNAME: lname
                 }
             }
         ]
@@ -33,10 +34,10 @@ app.post('/signup', (req, res) => {
     const postData = JSON.stringify(data);
     //make a request to mailchimp
     const options = {
-        url: 'https://us14.api.mailchimp.com/3.0/lists/',
+        url: 'https://us21.api.mailchimp.com/3.0/lists/83948f8cc5',
         method: 'POST',
         headers: {
-            Authorization: ''// api key
+            Authorization: 'auth 832d7c040cd33afe810ee9e2cfdeb04d-us21'// api key
         },
         body: postData
     }
@@ -45,9 +46,9 @@ app.post('/signup', (req, res) => {
             console.log('error dh')
         else{
             if(response.statusCode === 200)
-                console.log('200');
+                res.send('OK');
             else
-                console.log('boo');
+                res.end();
         }
     })
 });
