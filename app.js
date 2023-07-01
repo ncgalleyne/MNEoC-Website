@@ -2,12 +2,43 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
+// toastr & toastr dependencies
+const flash = require('connect-flash')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const toastr = require('express-toastr');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({extended: true}));
+
+// toastr
+app.use(cookieParser('secret'));
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+app.use(flash());
+app.use(toastr({
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "3000",
+    "hideDuration": "1000",
+    "timeOut": "2500",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}));
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,8 +76,12 @@ app.post('/signup', (req, res) => {
         if(err)
             console.log('error dh')
         else{
-            if(response.statusCode === 200)
-                res.send('OK');
+            if(response.statusCode === 200){
+                //toastr
+                req.toastr.success('Thank you, you have been successfully subscribed', "Success");
+                //clear form
+                res.end();
+            }
             else
                 res.end();
         }
