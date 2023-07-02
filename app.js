@@ -8,6 +8,14 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const toastr = require('express-toastr');
 
+//set environment variables
+const { config } = require('dotenv');
+const isProduction = process.env.NODE_ENV === 'prod';
+config({
+    path: isProduction ? '.env.production' : '.env.dev',
+});
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -68,11 +76,12 @@ app.post('/signup', (req, res) => {
         url: 'https://us21.api.mailchimp.com/3.0/lists/83948f8cc5',
         method: 'POST',
         headers: {
-            Authorization: 'auth 832d7c040cd33afe810ee9e2cfdeb04d-us21'// api key
+            Authorization: 'auth ' + MAILCHIMP_API_KEY
         },
         body: postData
     }
     request(options, (err, response, body) => {
+        console.log(response.statusCode)
         if(err)
             console.log('error dh')
         else{
@@ -89,3 +98,4 @@ app.post('/signup', (req, res) => {
 });
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));
+console.log("environment set to ",process.env.NODE_ENV)
