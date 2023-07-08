@@ -153,9 +153,11 @@ banner
 .bg-color{
 	background-color: RGBA(263, 106, 74, 0.78);
 	min-height: 650px;
+    display: flex;
+    align-items: center;
 }
 .banner-info{
-	padding-top: 190px;
+	/* padding-top: 190px; */
 }
 .banner-logo img{
 	display: inline-block;
