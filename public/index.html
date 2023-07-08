@@ -8,7 +8,6 @@
   <link rel="shortcut icon" href="img/MNEOC_bg.png">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
@@ -17,14 +16,13 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <%= req.toastr.render() %>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <!--banner-->
   <section id="banner" class="banner">
     <div class="bg-color">
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav style="display: none;" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="col-md-12">
             <div class="navbar-header">
@@ -50,14 +48,14 @@
         <div class="row">
           <div class="banner-info">
             <div class="banner-logo text-center">
-              <img src="img\MNEOC_bg_blk.png" width="48%" height="140px"class="img-responsive">
+              <img src="img\MNEOC_bg_blk.png" width="390px" height="340px"class="img-responsive">
             </div>
             <div class="banner-text text-center">
               <h1 class="white">Our Vision</h1>
               <p>Professional community resource promoting healthier lifestyle choices through education and engaging with community stakeholders</p>
             </div>
             <div class="overlay-detail text-center">
-              <a href="#service"><i class="fa fa-angle-down"></i></a>
+              <a href="#events"><i class="fa fa-angle-down"></i></a>
             </div>
           </div>
         </div>
@@ -74,6 +72,7 @@
         </div>
         <div class="col-md-6 col-sm-6">
           <h2 class="section-title white lg-line" style="text-align: center; margin-bottom: 20px;">About Us</h2>
+          <hr class="botm-line">
           <p>The Minority Nurse Educators of Chesco (MNECC), an auxiliary of W.C. Atkinson Memorial Community 
             Service Center Inc., a Coatesville non-profit, are local RNs and LPNs dedicated to promote and 
             improve health care outcomes throughout Chester County; with a primary focus in Coatesville and
@@ -92,76 +91,27 @@
       </div>
     </div>
   </section>
-  <!--/ objectives-->
-  <!--service-->
-  <section id="service" class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-4">
-          <h2 class="ser-title">Our Policy</h2>
-          <hr class="botm-line">
-          <p>The Minority Nurse Educators of Chester County, an auxiliary of W.C. Atkinson Memorial Community Service Center Inc., a Non-Profit 501(c)3 organization, comprised of RN’s and LPN’s we endeavor to promote and improve the health care outcomes in the Chester County Community specifically Coatesville and other areas of invitation.  We will maintain an exemplary level of professionalism within our responsibilities and activities.</p>
-          <p>As an agency, we will be respectful of others and not discriminate based on race, gender, ethnicity, disability, sexual orientation, religious beliefs, or political opinion.  We endeavor to always maintain the safety of our members and clients.  This policy prohibits all forms of bullying, harassment, or violence towards anyone.</p>
-          <p>As a 501(c)3 organization we cannot accept gifts monetary or otherwise. In serving the community we do not endorse any health care products, interest or advertisement of other agencies, groups, or individuals.</p>
-          <p>We will provide updated health care information utilizing CDC, state, local guidelines, and mandates.</p>
-        </div>
-        <h2 class="ser-title goals">Goals</h2>
-        <div class="col-md-4 col-sm-4">
-          <div class="service-info">
-            <div class="icon">
-              <i class="fa fa-stethoscope"></i>
-            </div>
-            <div class="icon-info">
-              <p>To be flexible based on CDC regulations, as far as state and local mandates.</p>
-            </div>
-          </div>
-          <div class="service-info">
-            <div class="icon">
-              <i class="fa fa-ambulance"></i>
-            </div>
-            <div class="icon-info">
-              <p>Provide up to date clinical information related to vital /emerging healthcare concerns within the community.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="service-info">
-            <div class="icon">
-              <i class="fa fa-user-md"></i>
-            </div>
-            <div class="icon-info">
-              <p>Providing health care information based on federal, state, and local guidelines.</p>
-            </div>
-          </div>
-          <div class="service-info">
-            <div class="icon">
-              <i class="fa fa-medkit"></i>
-            </div>
-            <div class="icon-info">
-              <p>Identify, research, and address, immediate health care concerns through methods of education and collaboration with stakeholders.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section id="events" class="d-flex justify-content-center">
-    <div id="carouselExampleIndicators" class="carousel slide mw-555" data-ride="carousel">
-      <ol class="carousel-indicators">
-      </ol>
-      <div class="carousel-inner">
+    <div class="py-5">
+      <h2 class="ser-title">Upcoming Events</h2>
+      <hr class="botm-line">
+      <div id="carouselExampleIndicators" class="carousel slide mw-555" data-ride="carousel">
+        <ol class="carousel-indicators">
+        </ol>
+        <div class="carousel-inner">
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </section>
-  <section id="content" class="section-padding">
+  <!-- <section id="content" class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -174,7 +124,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!--contact-->
   <section id="contact" class="section-padding">
     <div class="container">
@@ -194,25 +144,30 @@
         </div>
         <div class="col-md-8 col-sm-8 marb20">
           <div class="contact-info">
-            <h3 class="cnt-ttl">Subscribe to our mailing list!</h3>
+            <h3 class="cnt-ttl">Send us a message</h3>
             <div class="space"></div>
             <div id="sendmessage">Your message has been sent. Thank you!</div>
             <div id="errormessage"></div>
-            <form action="/signup" method="POST" role="form" class="contactForm">
+            <form action="" method="post" role="form" class="contactForm">
               <div class="form-group">
-                <input type="text" name="fname" class="form-control br-radius-zero" id="fname" placeholder="Your First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" name="lname" class="form-control br-radius-zero" id="lname" placeholder="Your Last Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
                 <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
+              <div class="form-group">
+                <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+
               <div class="form-action">
-                <button type="submit" class="btn btn-form">Subscribe</button>
+                <button type="submit" class="btn btn-form">Send Message</button>
               </div>
             </form>
           </div>
