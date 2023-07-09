@@ -8,6 +8,10 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const toastr = require('express-toastr');
 
+//mailchip vars
+const _MAILCHIMP = require("@mailchimp/mailchimp_marketing");
+const MAILCHIMP_SERVER = "us21";
+
 //set environment variables
 const { config } = require('dotenv');
 const isProduction = process.env.NODE_ENV === 'prod';
@@ -96,6 +100,15 @@ app.post('/signup', (req, res) => {
         }
     })
 });
+
+app.get('/health', async (req, res) => {
+    _MAILCHIMP.setConfig({
+        apiKey: MAILCHIMP_API_KEY,
+        server: MAILCHIMP_SERVER,
+      });
+    const response = await _MAILCHIMP.ping.get();
+    res.status(200).send(response)
+})
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));
 console.log("environment set to ",process.env.NODE_ENV)
