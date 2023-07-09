@@ -10,6 +10,7 @@ const toastr = require('express-toastr');
 
 //mailchip vars
 const _MAILCHIMP = require("@mailchimp/mailchimp_marketing");
+const MAILCHIMP_LIST_ID = "83948f8cc5";
 const MAILCHIMP_SERVER = "us21";
 
 //set environment variables
@@ -57,48 +58,41 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Mailing list route
 // calls to this endpoint subscribe members
-app.post('/signup', (req, res) => {
+app.post('/signup', async (req, res) => {
     const {fname, lname, email} = req.body;
-    if(!fname || !lname || !email)
-        console.log('invalid request');
 
-    const data = {
-        members: [
-            {
-                email_address: email,
-                status: 'subscribed',
-                merge_fields: {
-                    FNAME: fname,
-                    LNAME: lname
-                }
-            }
-        ]
-    }
-    const postData = JSON.stringify(data);
-    //make a request to mailchimp
-    const options = {
-        url: 'https://us21.api.mailchimp.com/3.0/lists/83948f8cc5',
-        method: 'POST',
-        headers: {
-            Authorization: 'auth ' + MAILCHIMP_API_KEY
+    _MAILCHIMP.setConfig({
+        apiKey: MAILCHIMP_API_KEY,
+        server: MAILCHIMP_SERVER,
+      });
+
+    const response = await _MAILCHIMP.lists.addListMember(MAILCHIMP_LIST_ID, {
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+            FNAME: fname,
+            LNAME: lname
         },
-        body: postData
+    });
+
+    if(response){
+        res.send('You have been subscribed.');
+        return;
     }
-    request(options, (err, response, body) => {
-        console.log(response.statusCode)
-        if(err)
-            console.log('error dh')
-        else{
-            if(response.statusCode === 200){
-                //toastr
-                req.toastr.success('Thank you, you have been successfully subscribed', "Success");
-                //clear form
-                res.end();
-            }
-            else
-                res.end();
-        }
-    })
+    res.status(500).send('bad request');
+});
+
+app.get('/members', async (req, res) => {
+    _MAILCHIMP.setConfig({
+        apiKey: MAILCHIMP_API_KEY,
+        server: MAILCHIMP_SERVER,
+      });
+    const response = await _MAILCHIMP.lists.getListMembersInfo(MAILCHIMP_LIST_ID);
+    if(response){
+        res.send(response);
+        return;
+    }
+    res.status(500).send('bad request');
 });
 
 app.get('/health', async (req, res) => {
@@ -107,7 +101,7 @@ app.get('/health', async (req, res) => {
         server: MAILCHIMP_SERVER,
       });
     const response = await _MAILCHIMP.ping.get();
-    res.status(200).send(response)
+    res.send(response)
 })
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));
