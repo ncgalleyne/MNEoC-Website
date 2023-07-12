@@ -2,6 +2,7 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require('fs');
 // toastr & toastr dependencies
 const flash = require('connect-flash')
 const session = require('express-session')
@@ -104,5 +105,9 @@ app.get('/health', async (req, res) => {
     res.send(response)
 })
 
+app.get('/slideshow', async (req, res) => {
+    res.send( fs.readdirSync('public/img/slideshow'));
+})
+
 app.listen(PORT, console.log(`Server started on ${PORT}`));
-console.log("environment set to ",process.env.NODE_ENV)
+console.log("environment set to ",process.env.NODE_ENV);
