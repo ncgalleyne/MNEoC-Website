@@ -32,4 +32,4 @@ renderEvents = async () => {
         $('.carousel-indicators').html(indicatorsHtml);
 }
 
-renderEvents();
+// renderEvents();
