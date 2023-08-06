@@ -147,15 +147,22 @@ banner
 #banner{
 	background-color: RGBA(263, 106, 74, 0.78);
 	/* background-size: cover; */
-	min-height: 650px;
 	position: relative;
 }
 .bg-color{
     background: url('../img/construction.jpg') no-repeat fixed;
-	min-height: 650px;
 }
 .banner-info{
 	padding-top: 473px;
+}
+@media (max-width: 604px){
+    .bg-color{
+        background: url('../img/construction.jpg') no-repeat fixed;
+        background-size: contain;
+    }
+    .banner-info{
+        padding-top: 181px;
+    }
 }
 .banner-logo img{
 	display: inline-block;
