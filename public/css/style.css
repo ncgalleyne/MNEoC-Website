@@ -145,17 +145,17 @@ banner
     background-color: rgba(12, 184, 182) !important;
 }
 #banner{
-	background: url('../img/bg-banner.jpg') no-repeat fixed;
-	background-size: cover;
+	background-color: RGBA(263, 106, 74, 0.78);
+	/* background-size: cover; */
 	min-height: 650px;
 	position: relative;
 }
 .bg-color{
-	background-color: RGBA(263, 106, 74, 0.78);
+    background: url('../img/construction.jpg') no-repeat fixed;
 	min-height: 650px;
 }
 .banner-info{
-	padding-top: 100px;
+	padding-top: 473px;
 }
 .banner-logo img{
 	display: inline-block;
