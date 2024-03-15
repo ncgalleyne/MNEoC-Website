@@ -149,15 +149,15 @@ banner
 	/* background-size: cover; */
 	position: relative;
 }
-.bg-color{
-    background: url('../img/construction.jpg') no-repeat fixed;
-}
+/* .bg-color{
+    background: url('../img/MNEOC_bg_wht.png') no-repeat fixed;
+} */
 .banner-info{
-	padding-top: 473px;
+	padding-top: 55px;
 }
 @media (max-width: 604px){
     .bg-color{
-        background: url('../img/construction.jpg') no-repeat fixed;
+        /* background: url('../img/MNEOC_bg_wht.png') no-repeat fixed; */
         background-size: contain;
     }
     .banner-info{
