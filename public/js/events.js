@@ -20,10 +20,10 @@ renderEvents = async () => {
                 indicatorsHtml += `<li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>`
             }
             carouselHtml += `
-                <img class="d-block w-100" src="./img/event1.jpg" alt="${event.title}">
+                <img class="d-block w-100" width="612px" height="450px" src="./img/event${i + 1}.jpg" alt="${event.title}">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: antiquewhite;">${event.title}</h5>
-                    <p>${event.description}</p>
+                    <!--<h5 style="color: antiquewhite;">${event.title}</h5>
+                    <p>${event.description}</p>-->
                 </div>
             </div>
                 ` 
@@ -32,4 +32,4 @@ renderEvents = async () => {
         $('.carousel-indicators').html(indicatorsHtml);
 }
 
-renderEvents();
+// renderEvents();

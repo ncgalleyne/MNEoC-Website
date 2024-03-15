@@ -37,7 +37,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#banner">Home</a></li>
                 <li class=""><a href="#about">About</a></li>
-                <li class=""><a href="#service">Services</a></li>
+                <li class=""><a href="#events">Events</a></li>
                 <li class=""><a href="#contact">Contact</a></li>
               </ul>
             </div>
@@ -47,9 +47,9 @@
       <div class="container">
         <div class="row">
           <div class="banner-info">
-            <div class="banner-logo text-center">
-              <img src="img\MNEOC_bg_blk.png" width="390px" height="340px"class="img-responsive">
-            </div>
+            <!-- <div class="banner-logo text-center">
+              <img src="img\MNEOC_bg_wht.png" width="390px" height="340px"class="img-responsive">
+            </div> -->
             <div class="banner-text text-center">
               <h1 class="white">Our Vision</h1>
               <p>Professional community resource promoting healthier lifestyle choices through education and engaging with community stakeholders</p>
@@ -93,7 +93,7 @@
   </section>
   <section id="events" class="d-flex justify-content-center">
     <div class="py-5">
-      <h2 class="ser-title">Upcoming Events</h2>
+      <h2 class="ser-title">Photos</h2>
       <hr class="botm-line">
       <div id="carouselExampleIndicators" class="carousel slide mw-555" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -136,38 +136,34 @@
         <div class="col-md-4 col-sm-4">
           <h3>Contact Info</h3>
           <div class="space"></div>
-          <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>321 Awesome Street<br> New York, NY 17022</p>
+          <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>822 E Chestnut Street<br> Coatesville, PA 19320</p>
           <div class="space"></div>
-          <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>info@companyname.com</p>
+          <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>gyle001@hotmail.com</p>
           <div class="space"></div>
-          <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+1 800 123 1234</p>
+          <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>610-380-6193</p>
+          <div style="width: 100%"><iframe width="200" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=824%20E%20Chestnut%20Street,%20Coatesville%20PA%2019320+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe></div>
         </div>
         <div class="col-md-8 col-sm-8 marb20">
           <div class="contact-info">
-            <h3 class="cnt-ttl">Send us a message</h3>
+            <h3 class="cnt-ttl">Subscribe to our mailing list!</h3>
             <div class="space"></div>
             <div id="sendmessage">Your message has been sent. Thank you!</div>
             <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
+            <form action="/signup" method="POST" role="form" class="contactForm">
               <div class="form-group">
-                <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="fname" class="form-control br-radius-zero" id="fname" placeholder="Your First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" name="lname" class="form-control br-radius-zero" id="lname" placeholder="Your Last Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
                 <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validation"></div>
-              </div>
-
               <div class="form-action">
-                <button type="submit" class="btn btn-form">Send Message</button>
+                <button type="submit" class="btn btn-form">Subscribe</button>
               </div>
             </form>
           </div>
@@ -181,8 +177,8 @@
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/custom.js"></script>
+  <script src="js/script.js"></script>
   <script src="js/events.js"></script>
-  <!--<script src="contactform/contactform.js"></script>-->
 
 </body>
 
