@@ -12,7 +12,7 @@ renderSlideshow = async () => {
     const images = await fetchImgFiles();
     let carouselHtml = '';
         images.forEach((img, i) => {
-            console.log(img)
+            // console.log(img)
             if(i === 0)
                 carouselHtml += '<div class="carousel-item active">';
             else{
