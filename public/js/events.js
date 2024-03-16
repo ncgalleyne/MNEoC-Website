@@ -9,18 +9,19 @@ fetchEventsJson = async (filter) => {
 
 renderEvents = async () => {
     const data = await fetchEventsJson();
+    console.log(data)
     const events = data.upcomingEvents;
-    let carouselHtml = '';
+    let eventHtml = '';
     let indicatorsHtml = '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>';
         events.forEach((event, i) => {
             if(i === 0)
-                carouselHtml += '<div class="carousel-item active">';
+                eventHtml += '<div class="carousel-item active">';
             else{
-                carouselHtml += '<div class="carousel-item">';
+                eventHtml += '<div class="carousel-item">';
                 indicatorsHtml += `<li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>`
             }
-            carouselHtml += `
-                <img class="d-block w-100" width="612px" height="450px" src="./img/event${i + 1}.jpg" alt="${event.title}">
+            eventHtml += `
+                <img class="d-block w-100" width="612px" height="450px" src="./img/events/event${i + 1}.jpg" alt="${event.title}">
                 <div class="carousel-caption d-none d-md-block">
                     <!--<h5 style="color: antiquewhite;">${event.title}</h5>
                     <p>${event.description}</p>-->
@@ -28,8 +29,8 @@ renderEvents = async () => {
             </div>
                 ` 
         });
-        $('.carousel-inner').html(carouselHtml);
-        $('.carousel-indicators').html(indicatorsHtml);
+        $('.event-inner').html(eventHtml);
+        $('.event-indicators').html(indicatorsHtml);
 }
 
-// renderEvents();
+renderEvents();
