@@ -9,3 +9,7 @@ When adding events:
         "date":"yyyy-mm-dd",
         "description":""
     }
+
+domain: minoritynurse.org
+bought from netlify for 10.99 - auto-renewal annually at 19.99
+could've gotten cheaper elsewhere  but forgot james quick exists smh
