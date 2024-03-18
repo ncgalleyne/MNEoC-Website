@@ -1,52 +1,36 @@
-import React, { useState } from 'react';
-import eventService from './services/eventService';
-// import axios from 'axios';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+//   Link
+} from 'react-router-dom';
+
+import Home from './components/Home';
+import AddEvent from './components/AddEvent'; // Assume you have an AddEvent component
 
 function App() {
-    const [event, setEvent] = useState({
-        title: '',
-        description: '',
-        date: ''
-    });
+  return (
+    <Router>
+        {/* <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/add-event">Add Event</Link>
+            </li>
+          </ul>
+        </nav> */}
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEvent(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await eventService.addEvent(event)
-            alert('Event added successfully');
-            setEvent({
-                title: '',
-                description: '',
-                date: ''
-            });
-        } catch (error) {
-            console.error('Failed to add event:', error);
-            alert('Failed to add event');
-        }
-    };
-
-    return (
-        <div className="App">
-            <h1>Add Event</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="title" placeholder="Title" value={event.title} onChange={handleChange} />
-                <br />
-                <textarea name="description" placeholder="Description" value={event.description} onChange={handleChange}></textarea>
-                <br />
-                <input type="date" name="date" value={event.date} onChange={handleChange} />
-                <br />
-                <button type="submit">Add Event</button>
-            </form>
-        </div>
-    );
+        {/* A <Routes> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+          <Route path="/add-event" element={<AddEvent />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+    </Router>
+  );
 }
 
 export default App;
