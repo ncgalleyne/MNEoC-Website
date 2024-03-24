@@ -1,8 +1,8 @@
 // src/components/AddEvent.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import addEvent from '../services/eventService'
 
-const AddEvent = () => {
+const Admin = () => {
   const [event, setEvent] = useState({ title: '', description: '', date: '' });
 
   const handleChange = (e) => {
@@ -12,7 +12,7 @@ const AddEvent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/events', event);
+      await addEvent(event);
       alert('Event added successfully!');
       // Reset form or redirect as needed
     } catch (error) {
@@ -39,4 +39,4 @@ const AddEvent = () => {
   );
 };
 
-export default AddEvent;
+export default Admin;

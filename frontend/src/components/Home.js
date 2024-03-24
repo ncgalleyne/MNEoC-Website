@@ -1,8 +1,8 @@
 // src/components/Home.js
 import React from 'react';
-import axios from 'axios';
+import ApiHandler from '../util/ApiHandler';
 
-const response = await axios.get('http://localhost:5000/api/images')
+const response = await ApiHandler.get('/images')
 const images = response.data
 
 const Home = () => {

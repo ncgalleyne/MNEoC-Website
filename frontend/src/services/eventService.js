@@ -1,10 +1,8 @@
-import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api/events';
+import ApiHandler from '../util/ApiHandler';
 
 const addEvent = async (eventData) => {
     try {
-        const response = await axios.post(API_URL, eventData);
+        const response = await ApiHandler.post('/events', eventData);
         return response.data;
     } catch (error) {
         throw error;

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/Home';
-import AddEvent from './components/Admin'; // Assume you have an AddEvent component
+import Admin from './components/Admin';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/admin" element={<AddEvent />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/" element={<Home />} />
         </Routes>
     </Router>
