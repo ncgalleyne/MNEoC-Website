@@ -1,5 +1,9 @@
 // src/components/Home.js
 import React from 'react';
+import axios from 'axios';
+
+const response = await axios.get('http://localhost:5000/api/images')
+const images = response.data
 
 const Home = () => {
   return (
@@ -85,14 +89,21 @@ const Home = () => {
             <ol className="carousel-indicators">
             </ol>
             <div className="carousel-inner">
+                {/* loop through s3/slideshow */}
+                {images.map((img, i) => (
+                    <div key={i} className={`carousel-item ${i === 0 ? 'active' : ''}`}>
+                        <img className="d-block w-100" style={{width: "612px", height: "450px"}} src={img} alt={`Slide ${i}`} />
+                    </div>
+                ))}
+                
             </div>
             <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
             </a>
             <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
             </a>
         </div>
         </div>

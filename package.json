@@ -21,11 +21,12 @@
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@prisma/extension-accelerate": "^1.0.0",
+    "aws-sdk": "^2.1583.0",
     "body-parser": "^1.20.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.5",
     "express-session": "^1.17.3",
     "express-toastr": "^2.0.2",
     "request": "^2.88.2"
