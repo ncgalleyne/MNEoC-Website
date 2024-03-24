@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Home.css'
 import EventCalendar from './EventCalendar'
+import {format} from 'date-fns'
 import ApiHandler from '../util/ApiHandler';
 
 const events = await ApiHandler.get('/events')
@@ -118,7 +119,7 @@ const Home = () => {
             {selectedCalendarEvent.title.length > 0 && 
             <div className="event-content">
             <div className='d-flex'>
-                <h2>{selectedCalendarEvent.title}</h2>:<h3>{selectedCalendarEvent.date}</h3>
+                <h2>{selectedCalendarEvent.title}</h2>:<h3>{format(selectedCalendarEvent.date, "MMMM dd, yyyy")}</h3>
             </div>
             <p>{selectedCalendarEvent.description}</p>
             </div>
