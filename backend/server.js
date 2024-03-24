@@ -31,6 +31,16 @@ const s3 = new AWS.S3({
 app.use(express.json());
 app.use(cors());
 
+app.get('/api/events', async (req, res) => {
+    try {
+        const events = await prisma.event.findMany()
+        res.status(200).json(events);
+    } catch (error) {
+        console.error('Failed to retrieve events:', error);
+        res.status(500).json({ error: 'Failed to retrieve events' });
+    }
+});
+
 app.post('/api/events', async (req, res) => {
     const { title, description, date } = req.body;
     console.log(req.body)
