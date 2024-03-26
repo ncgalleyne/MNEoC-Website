@@ -1,11 +1,16 @@
 // src/components/Home.js
-import React from 'react';
+import React, { useState } from 'react';
+import './Home.css'
+import EventCalendar from './EventCalendar'
+import {format} from 'date-fns'
 import ApiHandler from '../util/ApiHandler';
 
+const events = await ApiHandler.get('/events')
 const response = await ApiHandler.get('/images')
 const images = response.data
 
 const Home = () => {
+    const [selectedCalendarEvent, setselectedCalendarEvent] = useState({ title: '', description: '', date: '' });
   return (
   <>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -108,20 +113,23 @@ const Home = () => {
         </div>
         </div>
     </section>
-    {/* <!-- <section id="content" class="section-padding">
-        <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-            <a href="to-do.html"><h2>What to do if</h2></a>
-            <img>
+    <section id="calendar-events" class="section-padding">
+        <div className="d-flex justify-content-center">
+        <div className='col-md-6 event-content-container'>
+            {selectedCalendarEvent.title.length > 0 && 
+            <div className="event-content">
+            <div className='d-flex'>
+                <h2>{selectedCalendarEvent.title}</h2>:<h3>{format(selectedCalendarEvent.date, "MMMM dd, yyyy")}</h3>
             </div>
-            <div class="col-md-6">
-            <a href="activities.html"><h2>Activities</h2></a>
-            <img>
+            <p>{selectedCalendarEvent.description}</p>
             </div>
+            }
+        </div>
+        <div className='col-md-6'>
+            <EventCalendar events={events.data} setSelectedCalendarEvent={setselectedCalendarEvent}/>
         </div>
         </div>
-    </section> --> */}
+    </section>
     {/* <!--contact--> */}
     <section id="contact" className="section-padding">
         <div className="container">
@@ -168,14 +176,7 @@ const Home = () => {
         </div>
         </div>
     </section>
-    {/* <!--/ contact--> */}
-
-    {/* <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/events.js"></script> */}
+    {/* / contact */}
 
     </body>
   </>

@@ -1,0 +1,53 @@
+/* EventCalendar.css */
+
+/* Style the container of the calendar */
+.event-calendar-container {
+  max-width: 400px; /* Set max-width as needed */
+  margin: 0 auto; /* Center the calendar horizontally */
+  width: max-content;
+}
+
+/* Style the calendar itself */
+.react-calendar {
+  width: 100%;
+  max-width: 400px; /* Set max-width as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Style the calendar navigation buttons */
+.react-calendar__navigation button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Style the calendar navigation button text */
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #f0f0f0;
+}
+
+/* Style the calendar navigation button text */
+.react-calendar__navigation__label {
+  font-weight: bold;
+}
+
+/* Style the calendar day tile */
+.react-calendar__tile {
+  padding: 0.5em;
+  text-align: center;
+}
+
+/* Style the calendar day tile for weekends */
+.react-calendar__month-view__days__day--weekend {
+  color: #c00; /* Red color for weekends */
+}
+
+/* AddEvent.css */
+.highlighted-date {
+  background-color: #ffcccc; /* Light red background for highlighted dates */
+}
